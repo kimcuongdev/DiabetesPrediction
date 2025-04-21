@@ -1,0 +1,53 @@
+Chuẩn bị và phân tích dữ liệu
+- Nguồn dữ liệu
+- Các bước xử lý
+	1. Kiểm tra dữ liệu
+		+ Kiểm tra giá trị thiếu (missing value)
+		+ Kiểm tra giá trị ngoại lai (outliers) -> Dùng boxplot hoặc IQR để phát hiện và xử lý (giữ nguyên, cắt tỉa, thay thế) (?)
+		+ Kiểm tra cân bằng dữ liệu -> Nếu không cân bằng cần áp dụng oversampling, SMOTE, undersampling,...
+	2. Phân tích dữ liệu
+		+ Vẽ biểu đồ phân phối từng đặc trưng (histogram, density plot)
+		+ Kiểm tra tương quan (corr matrix, heatmap)
+			Xem xét tương quan lớn hơn 0.75 thì loại bỏ
+		+ Xem xét mối quan hệ giữa đặc trưng và nhãn (boxplot của glucose theo nhãn tiểu đường)
+			Giúp lựa chọn xem một thuộc tính có quan trọng trong quá trình phân loại không
+	3. Tiền xử lý dữ liệu
+		+ Chuẩn hóa (StandardScaler) hoặc Min-Max Scaling cho SVM, KNN, Neural Network
+		+ One-hot encoding hoặc Label Encoding
+		+ Chia tập dữ liệu
+
+
+
+
+
+
+
+
+
+
+
+
+
+Loss Function: Đánh giá mô hình trong quá trình học
+Metrics: Đánh giá dự đoán của mô hình sau khi học
+
+Metrics cho bài toán phân loại:
++ FP - False Positive: Lỗi loại 1
+  FN - False Negative: Lỗi loại 2
+  TP - True Positive
+  TN - True Negative
++ Accuracy = (TP + TN) / (TP + FP + TN + FN)
++ Precision = TP / (TP + FP): Tỉ lệ người thực sự bị mắc bệnh trong những người mà mô hình đánh giá là mắc bệnh
++ Recall = TP / (TP + TN): Tỉ lệ người bị mắc bệnh mà mô hình phát hiện ra được trên tổng số người bị mắc bệnh trong tập dữ liệu
++ F1-Score = (2 * Precision * Recall) / (Precision + Recall)
+
+Metrics cho bài toán Regression:
++ MAE - Mean Absolute Error = mean(|y_pred - y_test|)
++ MSE - Mean Square Error = mean((y_pred - y_test) ^ 2)
++ RMSE - Root Mean Square Error = sqrt(MSE) = sqrt(mean((y_pred - y_test) ^ 2))
++ R Square - Coefficient of Determination = 1 - sum((y_pred - y_test) ^ 2) / sum((y_test - mean(y_test)) ^ 2)
+
+Bias cao => Underfitting
+Variance cao => Overfitting
+
+Regularization: Ridge, Lasso
