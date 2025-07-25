@@ -8,6 +8,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = PROJECT_ROOT / "data"
 RAW_DATA = DATA_DIR / "raw" / "diabetes.csv"
 PROCESSED_DATA_DIR = DATA_DIR / "processed" 
+TTS_DIR = DATA_DIR / "train_test_split"
 
 # Đường dẫn mô hình
 MODELS_DIR = PROJECT_ROOT / "models"
